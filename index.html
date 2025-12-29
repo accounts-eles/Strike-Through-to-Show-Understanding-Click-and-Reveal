@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strike Through Activity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* Brand Colors: 
+           #1f2a52 (Midnight Blue)
+           #00bec7 (Teal)
+           #d2f0f0 (Light Aqua)
+           #abb5bf (Slate Grey)
+        */
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1f2a52;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .activity-card {
+            max-width: 800px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(31, 42, 82, 0.1);
+            overflow: hidden;
+            border: 1px solid #d2f0f0;
+        }
+
+        .header-bar {
+            background-color: #1f2a52;
+            padding: 1.5rem 2.5rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .content-area {
+            padding: 2.5rem;
+        }
+
+        .instruction-text {
+            color: #00bec7;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .intro-text {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .checklist-item {
+            background-color: #f8fafc;
+            border: 2px solid #d2f0f0;
+            margin-bottom: 12px;
+            padding: 1.25rem 1.5rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            user-select: none;
+        }
+
+        .checklist-item:hover {
+            border-color: #00bec7;
+            background-color: #ffffff;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 190, 199, 0.1);
+        }
+
+        /* The Strike-through effect */
+        .checklist-item.completed {
+            background-color: #f1f5f9;
+            border-color: #abb5bf;
+            opacity: 0.7;
+        }
+
+        .checklist-item.completed .item-text {
+            text-decoration: line-through;
+            color: #abb5bf;
+        }
+
+        .check-circle {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #00bec7;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item.completed .check-circle {
+            background-color: #00bec7;
+            border-color: #00bec7;
+        }
+
+        .check-icon {
+            color: #ffffff;
+            display: none;
+        }
+
+        .checklist-item.completed .check-icon {
+            display: block;
+        }
+
+        .item-text {
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d2f0f0;
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="activity-card">
+        <div class="header-bar">
+            <h1 class="text-2xl font-bold uppercase tracking-wide">Strike through</h1>
+        </div>
+
+        <div class="content-area">
+            <p class="instruction-text">Click on each item once you have read and understood it.</p>
+
+            <p class="intro-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec diam in felis elementum varius:</p>
+
+            <ul class="checklist">
+                <li class="checklist-item" onclick="toggleItem(this)">
+                    <div class="check-circle">
+                        <svg class="check-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                </li>
+                <li class="checklist-item" onclick="toggleItem(this)">
+                    <div class="check-circle">
+                        <svg class="check-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span class="item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>
+                </li>
+                <li class="checklist-item" onclick="toggleItem(this)">
+                    <div class="check-circle">
+                        <svg class="check-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span class="item-text">Duis aute irure dolor in reprehenderit in voluptate velit.</span>
+                </li>
+                <li class="checklist-item" onclick="toggleItem(this)">
+                    <div class="check-circle">
+                        <svg class="check-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span class="item-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa.</span>
+                </li>
+                <li class="checklist-item" onclick="toggleItem(this)">
+                    <div class="check-circle">
+                        <svg class="check-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span class="item-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</span>
+                </li>
+            </ul>
+
+            <div class="footer-note">
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleItem(element) {
+            element.classList.toggle('completed');
+        }
+    </script>
+</body>
+</html>
